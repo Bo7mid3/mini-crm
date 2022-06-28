@@ -1,5 +1,5 @@
 const STRINGS = {
-  ENG: {
+  eng: {
     EMAIL: "email",
     PASSWORD: "password",
     LOGIN: "login",

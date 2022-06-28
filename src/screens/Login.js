@@ -12,6 +12,7 @@ import Text from "@components/Text";
 import { COLORS, FONTS } from "@constants/theme";
 import STRINGS from "@constants/strings";
 import { goToSignUp } from "@helpers/navigation";
+import Translator from "@components/Translator";
 
 export default function Login() {
   const language = useSelector(({ language }) => language);
@@ -46,21 +47,21 @@ export default function Login() {
           name="email"
           control={control}
           mode="outlined"
-          label={STRINGS[language].EMAIL}
-          rules={{}}
+          label={STRINGS[language.id].EMAIL}
+          rules={{ required: true }}
         />
         <FormTextInput
           style={[styles.inputField]}
           name="password"
           control={control}
           mode="outlined"
-          label={STRINGS[language].PASSWORD}
+          label={STRINGS[language.id].PASSWORD}
           secureTextEntry
         />
         <View style={[styles.forgotPasswordContainer]}>
           <Pressable>
             <Text style={[styles.callToAction]}>
-              {STRINGS[language].FORGOT_PASSWORD_QUESTION}
+              {STRINGS[language.id].FORGOT_PASSWORD_QUESTION}
             </Text>
           </Pressable>
         </View>
@@ -70,15 +71,15 @@ export default function Login() {
           mode="contained"
           onPress={handleSubmit(onsubmit)}
         >
-          {STRINGS[language].LOGIN}
+          {STRINGS[language.id].LOGIN}
         </Button>
         <View style={[styles.signupContainter]}>
           <Text style={[styles.informativeText]}>
-            {STRINGS[language].NO_ACCOUNT_QUESTION}
+            {STRINGS[language.id].NO_ACCOUNT_QUESTION}
           </Text>
           <Pressable onPress={goToSignUp}>
             <Text style={[styles.callToAction]}>
-              {STRINGS[language].SIGN_UP}
+              <Translator>SIGN_UP</Translator>
             </Text>
           </Pressable>
         </View>

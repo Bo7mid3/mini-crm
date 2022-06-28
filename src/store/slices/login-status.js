@@ -4,11 +4,11 @@ const loginStatusSlice = createSlice({
   name: "loginStatus",
   initialState: "loading",
   reducers: {
-    logIn(state) {
-      state = "logged in"
+    logIn: (state) => {
+      return "logged in"
     },
-    logOut(state) {
-      state = "logged out"
+    logOut: (state) => {
+      return "logged out"
     }
   }
 })
