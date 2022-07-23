@@ -12,14 +12,19 @@ export const COLORS = {
 };
 
 export const FONTS = {
+  HEADER: {
+    fontWeight: "600",
+    fontSize: 20,
+  },
   FORM_TEXT_INPUT: {
   },
   CALL_TO_ACTION: {
-    fontWeight: 600,
+    fontSize: 16,
+    fontWeight: "500",
   },
   BUTTON_CALL_TO_ACTION: {
-    fontWeight: 600,
-    fontSize: 18,
+    fontWeight: "600",
+    fontSize: 16,
   },
 };
 

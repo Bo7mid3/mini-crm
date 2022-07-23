@@ -1,11 +1,20 @@
 {
-    "EMAIL": "email",
-    "PASSWORD": "password",
-    "LOGIN": "login",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "LOGIN": "Login",
     "NO_ACCOUNT_QUESTION": "Don’t have an account?",
     "FORGOT_PASSWORD_QUESTION": "Forgot password?",
     "CLICK_HERE": "Click here!",
     "SIGN_UP": "Sign up",
     "FULL_NAME": "Full name",
-    "UPLOAD_PHOTO": "Upload image"
+    "UPLOAD_PHOTO": "Upload image",
+    "RESET_PASSWORD": "Reset password",
+    "SEND_INSTRUCTIONS": "Send instructions",
+    "EMAIL_RESET_HINT": "Submit and check your email.",
+    "EMAIL_PATTERN_ERROR": "Invalid email",
+    "REQUIRED_FIELD": "This field is required",
+    "UPDATE_PROFILE": "Update profile",
+    "CHANGE_PHOTO": "Change photo",
+    "RESSOURCES": "Ressources",
+    "ADD_RESSOURCE": "Add ressource"
 }

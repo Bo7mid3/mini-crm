@@ -1,0 +1,33 @@
+diff --git a/node_modules/react-native-paper-select/lib/module/module/paperSelect.js b/node_modules/react-native-paper-select/lib/module/module/paperSelect.js
+index 02b5a25..9106d36 100644
+--- a/node_modules/react-native-paper-select/lib/module/module/paperSelect.js
++++ b/node_modules/react-native-paper-select/lib/module/module/paperSelect.js
+@@ -27,7 +27,8 @@ const PaperSelect = ({
+   textInputBackgroundColor,
+   textInputColor,
+   textInputHeight,
+-  dialogButtonLabelStyle
++  dialogButtonLabelStyle,
++  textInputTheme,
+ }) => {
+   const [selectText, setSelectText] = useState(value);
+   const [searchKey, setSearchKey] = useState('');
+@@ -175,15 +176,15 @@ const PaperSelect = ({
+   }, /*#__PURE__*/React.createElement(TextInput, {
+     ref: selectInputRef,
+     style: {
+-      backgroundColor: textInputBackgroundColor || '#fff',
+-      color: textInputColor || '#000',
++      backgroundColor: textInputTheme?undefined:(textInputBackgroundColor || '#fff'),
+       height: textInputHeight
+     },
++    theme: textInputTheme,
+     label: label,
+     underlineColor: underlineColor || 'black',
+     activeUnderlineColor: activeUnderlineColor || 'black',
+     activeOutlineColor: activeOutlineColor || 'black',
+-    outlineColor: outlineColor || 'black',
++    outlineColor: textInputTheme?null:outlineColor || 'black',
+     mode: textInputMode || 'outlined',
+     onFocus: _onFocus,
+     showSoftInputOnFocus: false,

@@ -9,6 +9,8 @@ module.exports = function (api) {
           root: ["./"],
           alias: {
             "@root": "./src",
+            "@styles": "./src/styles",
+            "@layouts": "./src/layouts",
             "@assets": "./src/assets",
             "@components": "./src/components",
             "@constants": "./src/constants",
@@ -18,6 +20,7 @@ module.exports = function (api) {
             "@store": "./src/store",
             "@helpers": "./src/helpers",
             "@navigation": "./src/navigation",
+            "@services": "./src/services",
           },
         },
       ],

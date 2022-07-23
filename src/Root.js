@@ -1,15 +1,17 @@
 import React, { useCallback, useEffect } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useDispatch, useSelector } from "react-redux";
 
 import NAVIGATION_REFERNCE from "@navigation/navigation-reference";
-import getLoggedOutScreens from "@navigation/get-logged-out-screens";
-import NativeStackNavigator from "@navigation/native-stack-navigator";
-import getLoggedInScreens from "@navigation/get-logged-in-screens";
-import getSplashScreen from "@navigation/get-splash-screen";
-import { logOut } from "@store/slices/login-status";
+import getLoggedOutRoutes from "@navigation/get-logged-out-routes";
+import getLoggedInRoutes from "@navigation/get-logged-in-routes";
+import { logOut, logIn } from "@store/slices/login-status";
 import setUpTranslator from "@helpers/translator";
+import Splash from "@screens/Splash";
+
+const Stack = createNativeStackNavigator();
 
 export default function Root() {
   const loginStatus = useSelector(({ loginStatus }) => loginStatus);
@@ -18,12 +20,10 @@ export default function Root() {
 
   const switchRoutes = useCallback(() => {
     switch (loginStatus) {
-      case "loading":
-        return getSplashScreen();
       case "logged in":
-        return getLoggedInScreens();
+        return getLoggedInRoutes(Stack);
       case "logged out":
-        return getLoggedOutScreens();
+        return getLoggedOutRoutes(Stack);
     }
   }, [loginStatus]);
 
@@ -36,11 +36,7 @@ export default function Root() {
     setUp();
   }, []);
 
-  return (
-    <NavigationContainer ref={NAVIGATION_REFERNCE}>
-      <NativeStackNavigator.Navigator>
-        {switchRoutes()}
-      </NativeStackNavigator.Navigator>
-    </NavigationContainer>
-  );
+  if (loginStatus === "loading") return <Splash />;
+
+  return <Stack.Navigator>{switchRoutes()}</Stack.Navigator>;
 }
